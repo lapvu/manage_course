@@ -1,0 +1,18 @@
+a{
+    text-decoration: none;
+    color: black
+}
+
+.card{
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
+    transition: .6s;
+}
+.card:hover{
+    box-shadow: 8px 8px 5px rgba(33,33,33,.2);
+}
+.jumbotron{
+    margin-top: 10px;
+    background: url('https://png.pngtree.com/thumb_back/fw800/back_pic/03/88/19/8457d4c36510ab4.jpg') no-repeat;
+    background-size: cover;
+    color: #fff;
+}

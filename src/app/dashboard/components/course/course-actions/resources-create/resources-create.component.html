@@ -1,0 +1,48 @@
+<div>
+  <form [formGroup]="resourcesForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-md-5">
+        <input type="text" class="form-control" formControlName="resources_name" placeholder="Tên tài nguyên" [ngClass]="{'is-invalid': resourcesForm.controls.resources_name.invalid && resourcesForm.controls.resources_name.touched}">
+        <div *ngIf="resourcesForm.controls.resources_name.invalid && resourcesForm.controls.resources_name.touched" class="invalid-feedback"
+          style="display: block">
+          Nội dung phải có 5 ký tự trở lên !
+        </div>
+      </div>
+      <div class="col-md-5">
+        <input type="text" class="form-control" placeholder="Đường dẫn" formControlName="resources_link" [ngClass]="{'is-invalid': resourcesForm.controls.resources_link.invalid && resourcesForm.controls.resources_link.touched}">
+        <div *ngIf="resourcesForm.controls.resources_link.invalid && resourcesForm.controls.resources_link.touched" class="invalid-feedback"
+          style="display: block">
+          Bạn cần một đường dẫn !
+        </div>
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary" [disabled]="resourcesForm.invalid">Thêm</button>
+      </div>
+    </div>
+  </form>
+  <table class="table table-hover" *ngIf="resourcesArr.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tên</th>
+        <th scope="col">Đường dẫn</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of resourcesArr; let i=index">
+        <th scope="row">{{i}}</th>
+        <td>{{item.resources_name}}</td>
+        <td>{{item.resources_link}}</td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="remove(item.resources_id,i)">
+            <i class="fas fa-times"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="preload text-center" *ngIf="isloading">
+    loading...
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Quản lý khóa học</h1>
+    <p class="lead">Quản lý khóa học thuận tiện, nhanh chóng </p>
+  </div>
+</div>
+<div class="main content">
+  <h3 class="text-center">
+    Danh sách giáo viên :
+  </h3>
+  <div class="row" style="margin: 10px 0;">
+    <div class="col-6 col-md-3" *ngFor="let item of teachers" style="margin-top: 20px">
+      <a class="card" routerLink="/teacher/{{item.teacher_id}}">
+        <img class="card-img-top" src="{{item.photo_url}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Giáo viên: {{item.teacher_name}}</h5>
+          <p class="card-text">
+            <img src="../../assets/email.svg" height="20px" width="20px"> email : {{item.teacher_email}}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+  <div class="preload" style="text-align: center;" *ngIf="isloading">
+    loading...
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div>
+  <form style="margin: 30px;" [formGroup]="notificationForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <textarea class="form-control" formControlName="notification_body" [ngClass]="{'is-invalid': notificationForm.controls.notification_body.invalid && notificationForm.controls.notification_body.touched}"
+        placeholder="Nội dung"></textarea>
+      <div *ngIf="notificationForm.controls.notification_body.invalid && notificationForm.controls.notification_body.touched" class="invalid-feedback"
+        style="display: block">
+        Nội dung phải có 5 ký tự trở lên !
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="notificationForm.invalid">Đăng</button>
+  </form>
+  <table class="table table-hover" *ngIf="notifications.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nội dung</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of notifications;let i = index">
+        <th scope="row">{{i}}</th>
+        <td>{{item.notification_body}}</td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="remove(item.notification_id,i)">
+            <i class="fas fa-times"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="preload text-center" *ngIf="isloading">
+    loading...
+  </div>
+</div>

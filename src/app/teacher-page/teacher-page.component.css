@@ -1,0 +1,32 @@
+.right{
+    padding: 20px;
+    background: #fff;
+}
+.left{
+    padding: 20px;
+    background: #fff;
+}
+.card{
+    transition: .5s;
+    border-radius: 0;
+    cursor: pointer;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.14), 0 2px 1px -1px rgba(0,0,0,0.12);
+}
+.card:hover{
+    background: rgb(231, 253, 255);
+}
+ul{
+    list-style-type: none;
+    margin-top: 20px;
+}
+ul li i{
+    font-weight: bold
+}
+img{
+    border-radius: 50%;
+}
+@media only screen and (max-width: 600px) {
+    .right{
+        margin: 10px;
+    }
+}

@@ -1,0 +1,37 @@
+<div class="main content">
+  <a routerLink="/admin/course/list" class="btn btn-light" style="margin-bottom: 20px;">
+    <i class="fas fa-arrow-left"></i> Quay lại</a>
+  <ngb-tabset [justify]="currentJustify">
+    <ngb-tab title="Thông tin chung">
+      <ng-template ngbTabContent>
+        <div class="box" *ngIf="course">
+          <h2>Tên Khóa học : {{course.course_name}}</h2>
+          <h5>Giới thiệu : {{course.course_description}}</h5>
+          <p>Thời gian bắt đầu : {{course.date_start}}</p>
+          <p>Thời gian kết thúc : {{course.date_end}}</p>
+        </div>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        Thêm sinh viên</ng-template>
+      <ng-template ngbTabContent>
+        <app-student-create></app-student-create>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        Đăng thông báo</ng-template>
+      <ng-template ngbTabContent>
+        <app-notification-create></app-notification-create>
+      </ng-template>
+    </ngb-tab>
+    <ngb-tab>
+      <ng-template ngbTabTitle>
+        Thêm tài nguyên</ng-template>
+      <ng-template ngbTabContent>
+        <app-resources-create></app-resources-create>
+      </ng-template>
+    </ngb-tab>
+  </ngb-tabset>
+</div>

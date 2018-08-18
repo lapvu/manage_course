@@ -1,0 +1,30 @@
+<div class="main content">
+  <h2>Danh sách khóa học</h2>
+  <div class="text-right">
+    <a [routerLink]="['/admin/course/create']" class="btn btn-success">
+      <i class="fas fa-plus"></i> Thêm mới</a>
+  </div>
+  <div *ngIf="courses.length > 0">
+    <div class="card course-item" *ngFor="let item of courses; let i = index">
+      <div class="card-body">
+        <a class="card-title" routerLink="/admin/course/{{item.course_id}}">{{item.course_name}}</a>
+        <p class="card-text">{{item.course_description}}</p>
+        <a routerLink="/admin/course/edit/" [queryParams]="{course_id: item.course_id,course_name:item.course_name,course_description:item.course_description,date_start:item.date_start,date_end:item.date_end}"
+          class="btn btn-info">
+          <i class="far fa-edit"></i> Sửa</a>
+        <button class="btn btn-danger" style="margin: 0 10px;" (click)="RemoveCourse(item.course_id,i)">
+          <i class="far fa-trash-alt"></i> Xóa</button>
+      </div>
+    </div>
+  </div>
+  <div class="preload text-center" *ngIf="isloading">
+    loading...
+  </div>
+  <div style="margin-top: 20px" class="pagination justify-content-center">
+    <ngb-pagination *ngIf="courses.length > 0" [(collectionSize)]="totalPages" [(page)]="page" [maxSize]="3" [rotate]="true"
+      [ellipses]="false" [boundaryLinks]="true" (pageChange)="loadData()"></ngb-pagination>
+  </div>
+  <p *ngIf="!(courses.length>0) &&  !isloading" class="text-center" style="margin: 20px 0;">
+    Bạn chưa có khóa học nào !
+  </p>
+</div>

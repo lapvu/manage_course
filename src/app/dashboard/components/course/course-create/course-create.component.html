@@ -1,0 +1,33 @@
+<div class="main content">
+  <a routerLink="/admin/course/list" class="btn btn-light">
+    <i class="fas fa-arrow-left"></i> Quay lại</a>
+  <h2>Thêm Khóa Học</h2>
+  <form [formGroup]="courseForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Tên khóa học :</label>
+      <input type="text" [ngClass]="{'is-invalid': courseForm.controls.courseName.invalid && courseForm.controls.courseName.touched}"
+        class="form-control" formControlName="courseName" required>
+      <div *ngIf="courseForm.controls.courseName.invalid && courseForm.controls.courseName.touched" class="invalid-feedback" style="display: block">
+        Tên khoá học phải có 4 ký tự trở lên.
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Giới thiệu :</label>
+      <textarea type="text" class="form-control" [ngClass]="{'is-invalid': courseForm.controls.description.invalid && courseForm.controls.description.touched}"
+        formControlName="description" required></textarea>
+      <div *ngIf="courseForm.controls.description.invalid && courseForm.controls.description.touched" class="invalid-feedback"
+        style="display: block">
+        Mô tả phải có 10 ký tự trở lên.
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Thời gian bắt đầu :</label>
+      <input type="date" class="form-control" formControlName="startDate" required>
+    </div>
+    <div class="form-group">
+      <label>Thời gian kết thúc :</label>
+      <input type="date" class="form-control" formControlName="endDate" required>
+    </div>
+    <button type="submit" class="btn btn-primary btn-block" [disabled]="courseForm.invalid">Thêm</button>
+  </form>
+</div>

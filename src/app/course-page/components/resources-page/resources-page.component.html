@@ -1,0 +1,17 @@
+<div class="box" style="margin: 50px 0;">
+    <div class="row justify-content-center">
+        <div class="col-sm-12 col-md-8">
+            <div class="row">
+                <div class="col text-center" *ngFor="let item of resources">
+                    <img src="../../../../assets/folder.svg">
+                    <a href="{{item.resources_link}}">
+                        {{item.resources_name}}
+                    </a>
+                </div>
+            </div>
+            <div *ngIf="!(resources.length > 0)" class="text-center">
+                <p>Chưa có tài nguyên nào nào !</p>
+              </div>
+        </div>
+    </div>
+</div>

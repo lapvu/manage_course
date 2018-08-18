@@ -1,0 +1,15 @@
+a{
+    color: black
+}
+img{
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+}
+a{
+    text-decoration: none;
+    transition: .5s;
+}
+a:hover{
+    color: rgba(245, 41, 41, 0.6)
+}
